@@ -7,10 +7,9 @@ const port = process.env.PORT || 3001;
 const app = express();
 
 app.use(cors({
-  origin: "https://backend-cadastroempregados.onrender.com",
+  origin: "https://cadastro-empregados.vercel.app/",
     methods: "GET,POST,PUT,DELETE",
     allowedHeaders: "Content-Type, Authorization",
-
 }));
 app.use(express.json());
 app.use(allRoutes);
