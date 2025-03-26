@@ -6,7 +6,12 @@ const port = process.env.PORT || 3001;
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: "https://backend-cadastroempregados.onrender.com",
+    methods: "GET,POST,PUT,DELETE",
+    allowedHeaders: "Content-Type, Authorization",
+
+}));
 app.use(express.json());
 app.use(allRoutes);
 
