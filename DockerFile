@@ -8,10 +8,12 @@ RUN npm install
 
 COPY . .
 
-# Compile os arquivos TypeScript para JavaScript
+# Gera os arquivos do Prisma
+RUN npx prisma generate
+
+# Compila o código TypeScript
 RUN npm run build
 
 EXPOSE 3000
 
-# Inicia o servidor com o código JavaScript gerado
 CMD ["npm", "start"]
