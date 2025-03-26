@@ -7,7 +7,7 @@ const port = process.env.PORT || 3001;
 const app = express();
 
 app.use(cors({
-  origin: "https://cadastro-empregados.vercel.app/",
+  origin: "https://cadastro-empregados.vercel.app",
     methods: "GET,POST,PUT,DELETE",
     allowedHeaders: "Content-Type, Authorization",
 }));
