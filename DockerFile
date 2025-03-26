@@ -1,20 +1,17 @@
-# Define a imagem base
 FROM node:18
 
-# Define o diretório de trabalho na imagem
 WORKDIR /app
 
-# Copia os arquivos de dependências para a imagem
 COPY package.json package-lock.json tsconfig.json ./
 
-# Instala as dependências
 RUN npm install
 
-# Copia todo o código-fonte para a imagem
 COPY . .
 
-# Expõe a porta 3000 (ou outra porta que sua aplicação utilize)
+# Compile os arquivos TypeScript para JavaScript
+RUN npm run build
+
 EXPOSE 3000
 
-# Define o comando para iniciar a aplicação
+# Inicia o servidor com o código JavaScript gerado
 CMD ["npm", "start"]
