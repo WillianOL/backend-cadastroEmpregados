@@ -2,7 +2,19 @@
 version: '3.9'
 
 services:
-  database: 
+  app:
+  build:
+    context: .
+    dockerfile: DockerFile
+  ports:
+    - "3000:3000"
+  environment:
+    - NODE_ENV=production
+  volumes:
+    - .:/app
+  depends_on:
+    - db
+  db: 
     image: postgres
     container_name: empregados
     restart: always

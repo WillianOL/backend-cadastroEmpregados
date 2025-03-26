@@ -1,0 +1,20 @@
+# Define a imagem base
+FROM node:16
+
+# Define o diretório de trabalho na imagem
+WORKDIR /app
+
+# Copia os arquivos de dependências para a imagem
+COPY package.json package-lock.json ./
+
+# Instala as dependências
+RUN npm install
+
+# Copia todo o código-fonte para a imagem
+COPY . .
+
+# Expõe a porta 3000 (ou outra porta que sua aplicação utilize)
+EXPOSE 3000
+
+# Define o comando para iniciar a aplicação
+CMD ["npm", "start"]
